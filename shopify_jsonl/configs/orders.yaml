@@ -1,0 +1,16 @@
+name: orders
+description: >
+  Placeholder config for order bulk exports (Shopify orders bulk JSONL).
+  Order parsing requires a different node type set than products.
+  This config is reserved for a future version.
+
+expand_variants: false
+include_inventory: false
+
+fields:
+  - id
+  - title
+  - status
+  - tags
+  - created_at
+  - updated_at

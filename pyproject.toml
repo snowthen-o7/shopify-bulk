@@ -1,0 +1,61 @@
+[project]
+name = "shopify-bulk"
+version = "0.1.0"
+description = "Process Shopify bulk operation JSONL exports: trigger, download, parse parent/child, flatten to CSV/JSON."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Alex Diaz", email = "alex@snowforge.dev" }]
+keywords = ["shopify", "jsonl", "bulk-operations", "graphql", "feed-management", "product-feed", "csv", "export"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+  "click>=8.1",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.5",
+]
+
+[project.scripts]
+shopify-bulk = "shopify_jsonl.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/snowthen-o7/shopify-bulk"
+Repository = "https://github.com/snowthen-o7/shopify-bulk"
+Issues = "https://github.com/snowthen-o7/shopify-bulk/issues"
+"Built by" = "https://snowforge.dev"
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["shopify_jsonl", "shopify_jsonl.configs"]
+
+[tool.setuptools.package-data]
+"shopify_jsonl.configs" = ["*.yaml"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

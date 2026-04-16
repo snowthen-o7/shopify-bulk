@@ -1,0 +1,40 @@
+name: products
+description: >
+  Flat product catalog export for Google Shopping, Meta Catalog, and general feed management.
+  Expands variants so each row is one buyable SKU. Includes inventory totals per location.
+
+expand_variants: true
+include_inventory: true
+
+fields:
+  - id
+  - title
+  - body_html
+  - vendor
+  - product_type
+  - handle
+  - status
+  - tags
+  - image_url
+  - product_url
+  - product_category
+  - variant_id
+  - variant_title
+  - variant_sku
+  - variant_barcode
+  - variant_price
+  - compare_at_price
+  - variant_image_url
+  - weight
+  - weight_unit
+  - size
+  - color
+  - material
+  - inventory_total
+  - variant_inventory_quantity
+  - additional_image_links
+  - seo_title
+  - seo_description
+  - published_at
+  - created_at
+  - updated_at

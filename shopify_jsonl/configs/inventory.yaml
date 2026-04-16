@@ -1,0 +1,22 @@
+name: inventory
+description: >
+  Inventory snapshot focused on stock levels by location. One row per variant.
+  Use for inventory reconciliation, stock alerts, and warehouse management.
+
+expand_variants: true
+include_inventory: true
+
+fields:
+  - id
+  - title
+  - variant_id
+  - variant_sku
+  - variant_barcode
+  - variant_price
+  - status
+  - inventory_total
+  - variant_inventory_quantity
+  - variant_available_for_sale
+  - variant_inventory_policy
+  - handle
+  - vendor
