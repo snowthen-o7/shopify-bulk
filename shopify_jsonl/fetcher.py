@@ -58,21 +58,13 @@ def fetch_bulk_export(
     query = products_query(include_inventory=include_inventory)
     logger.info("Triggering bulk operation on %s (API %s)", shop_domain, api_version)
 
-    # 2. Create the bulk operation
-    mutation = """
-    mutation {
-      bulkOperationRunQuery(query: \"\"\"QUERY_PLACEHOLDER\"\"\") {
-        bulkOperation {
-          id
-          status
-        }
-        userErrors {
-          field
-          message
-        }
-      }
-    }
-    """.replace("QUERY_PLACEHOLDER", query.strip().replace('"', '\\"').replace("\n", "\\n"))
+    # 2. Create the bulk operation.
+    # GraphQL triple-quoted strings embed the inner query without escaping.
+    mutation = (
+        'mutation { bulkOperationRunQuery(query: """'
+        + query.strip()
+        + '""") { bulkOperation { id status } userErrors { field message } } }'
+    )
 
     result = _graphql(graphql_url, headers, mutation)
     bulk_response = result.get("bulkOperationRunQuery", {})
